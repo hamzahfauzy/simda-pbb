@@ -1,1 +1,4 @@
-Line 21: Class MSComctlLib.StatusBar of control stsBar was not a loaded control class.
+Line 87: Class MSComDlg.CommonDialog of control gLOK was not a loaded control class.
+Line 90: The property name _ExtentX in gLOK is invalid.
+Line 91: The property name _ExtentY in gLOK is invalid.
+Line 92: The property name _Version in gLOK is invalid.

@@ -1,6 +1,6 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
 Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "comdlg32.ocx"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
 Begin VB.MDIForm frmUtama 
    BackColor       =   &H8000000C&
    Caption         =   "Sistem Informasi Pengelolaan Pajak Bumi dan Bangunan Perdesaan dan Perkotaan (PBB-P2)"
@@ -56,7 +56,6 @@ Begin VB.MDIForm frmUtama
             Style           =   2
             Alignment       =   1
             AutoSize        =   2
-            Enabled         =   0   'False
             TextSave        =   "NUM"
          EndProperty
          BeginProperty Panel5 {8E3867AB-8586-11D1-B16A-00C0F0283628} 

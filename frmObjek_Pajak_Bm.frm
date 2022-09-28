@@ -1280,7 +1280,7 @@ Begin VB.Form frmObjek_Pajak_Bm
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Format          =   98238465
+         Format          =   295698433
          CurrentDate     =   41486
       End
       Begin MSComCtl2.DTPicker dtPajak 
@@ -1302,7 +1302,7 @@ Begin VB.Form frmObjek_Pajak_Bm
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Format          =   98238465
+         Format          =   295698433
          CurrentDate     =   41486
       End
       Begin MSComCtl2.DTPicker dtPajak 
@@ -1324,7 +1324,7 @@ Begin VB.Form frmObjek_Pajak_Bm
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Format          =   98238465
+         Format          =   295698433
          CurrentDate     =   41486
       End
       Begin VB.Label Label32 

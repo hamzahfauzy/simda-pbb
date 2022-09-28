@@ -8,7 +8,7 @@ Begin VB.Form frmSPPT_Tunggal
    ClientHeight    =   6930
    ClientLeft      =   -15
    ClientTop       =   270
-   ClientWidth     =   5940
+   ClientWidth     =   5955
    ControlBox      =   0   'False
    Icon            =   "frmSPPT_Tunggal.frx":0000
    LinkTopic       =   "Form1"
@@ -16,7 +16,7 @@ Begin VB.Form frmSPPT_Tunggal
    MDIChild        =   -1  'True
    MinButton       =   0   'False
    ScaleHeight     =   6930
-   ScaleWidth      =   5940
+   ScaleWidth      =   5955
    Begin VB.Frame Frame4 
       BackColor       =   &H8000000D&
       Height          =   510
@@ -851,7 +851,7 @@ Begin VB.Form frmSPPT_Tunggal
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Format          =   187105281
+         Format          =   62717953
          CurrentDate     =   41486
       End
       Begin MSComCtl2.DTPicker dJatuh 
@@ -872,7 +872,7 @@ Begin VB.Form frmSPPT_Tunggal
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Format          =   187105281
+         Format          =   62717953
          CurrentDate     =   41486
       End
       Begin VB.Label Label28 
@@ -1400,9 +1400,12 @@ xSTR = "Select THN_NJOPTKP From DAT_SUBJEK_PAJAK_NJOPTKP WHERE THN_NJOPTKP='" & 
 openDB (xSTR)
 If rPajak.RecordCount > 0 Then rPajak.MoveFirst
 If rPajak.EOF Then
-    MsgBox "NJOPTKP Untuk tahun " & ccTahun.Text & " Beluma dibuat" & _
-            vbCrLf & "Proses tidak akan dilanjutkan...", vbCritical, "Tetnong"
-    Exit Sub
+'PERBAIKAN TAHUN 2022
+    TANYA = MsgBox("NJOPTKP Untuk tahun " & ccTahun.Text & " Belum dibuat" & _
+            vbCrLf & "Apa proses tetap dilanjutkan?...", vbYesNo + vbCritical, "Tetnong")
+            If TANYA = vbNo Then
+                Exit Sub
+            End If
 End If
 strLOG = "SELECT * FROM LOGUTAMA WHERE NOP1='" & Trim(aNOP.Text) & "' ORDER BY TGL_PEREKAMAN_OP ASC"
 
@@ -1688,10 +1691,10 @@ End If
 End Sub
 
 Private Sub tNOP_GotFocus(Index As Integer)
-'Select Case Index
-'Case 3, 4, 5, 10, 11 To 21
+Select Case Index
+Case 3, 4, 5, 10, 11 To 21
     Call c_blok(tNOP(Index))
-'End Select
+End Select
 End Sub
 
 Private Sub tNOP_KeyPress(Index As Integer, KeyAscii As Integer)
@@ -1900,9 +1903,11 @@ Keluar:
 '    " '" & tNOP(13).Text & " ','" & xTT & "','" & tNOP(14).Text & "','" & xTB & "','" & xxJTempo & "','" & tNOP(11).Text & "','" & tNOP(12).Text & "','" & tNOP(15).Text & "','" & tNOP(16).Text & "','" & tNOP(17).Text & "','" & tNOP(18).Text & "','" & tNOP(21).Text & "','" & xHutang & "','" & xKurang & "','" & xBayar & "','0','0','0','" & xxTerbit & "','" & xxTerbit & "','000000', " & _
 '    " 1,'01','16','04','01','01','T')"
 ' '   openDB (iSQL)
-xSQL = "Delete From SPPT where ('12.12.' + KD_KECAMATAN + '.' + KD_KELURAHAN+ '.' + KD_BLOK + '-' + NO_URUT + '.' + KD_JNS_OP)='" & Trim(aNOP.Text) & "' and THN_PAJAK_SPPT='" & ccTahun.Text & "' AND PROSES='" & CPP & "'"
+
+'MsgBox CPP
+xSQL = "Delete From SPPT where ('12.12.' + KD_KECAMATAN + '.' + KD_KELURAHAN+ '.' + KD_BLOK + '-' + NO_URUT + '.' + KD_JNS_OP)='" & Trim(aNOP.Text) & "' and THN_PAJAK_SPPT='" & ccTahun.Text & "'" ' AND PROSES='" & CPP & "'"
 openDB (xSQL)
-iSQL = "Select * From SPPT where ('12.12.' + KD_KECAMATAN + '.' + KD_KELURAHAN+ '.' + KD_BLOK + '-' + NO_URUT + '.' + KD_JNS_OP)='" & Trim(aNOP.Text) & "' and THN_PAJAK_SPPT='" & ccTahun.Text & "' AND PROSES='" & CPP & "'"
+iSQL = "Select * From SPPT where ('12.12.' + KD_KECAMATAN + '.' + KD_KELURAHAN+ '.' + KD_BLOK + '-' + NO_URUT + '.' + KD_JNS_OP)='" & Trim(aNOP.Text) & "' and THN_PAJAK_SPPT='" & ccTahun.Text & "'" ' AND PROSES='" & CPP & "'"
 openDB (iSQL)
 If rPajak.RecordCount > 0 Then rPajak.MoveFirst
 rPajak.AddNew

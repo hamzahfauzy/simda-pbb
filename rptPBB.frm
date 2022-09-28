@@ -58,10 +58,6 @@ Dim xNama, xNIP, xJabatan
 
 
 
-Private Sub CRViewer1_CloseButtonClicked(UseDefault As Boolean)
-
-End Sub
-
 Private Sub Form_Activate()
 On Error GoTo Salah
 Screen.MousePointer = vbHourglass
@@ -113,7 +109,7 @@ openDB (C_STR)
 If rPajak.RecordCount > 0 Then rPajak.MoveFirst
 If J_CETAK = 1 Then
     rSPPT.Database.SetDataSource rPajak
-    rSPPT.tNip.SetText "NIP. " & xNIP
+    rSPPT.tNIP.SetText "NIP. " & xNIP
     rSPPT.tNama.SetText xNama
     rSPPT.tkepala.SetText xJabatan
     CRViewer1.ReportSource = rSPPT
@@ -121,7 +117,7 @@ If J_CETAK = 1 Then
     rSPPT.DiscardSavedData
 ElseIf J_CETAK = 100 Then
     rSPPT1.Database.SetDataSource rPajak
-    rSPPT1.tNip.SetText "NIP. " & xNIP
+    rSPPT1.tNIP.SetText "NIP. " & xNIP
     rSPPT1.tNama.SetText xNama
     rSPPT1.tkepala.SetText xJabatan
     CRViewer1.ReportSource = rSPPT1
@@ -129,7 +125,7 @@ ElseIf J_CETAK = 100 Then
     rSPPT1.DiscardSavedData
 ElseIf J_CETAK = 400 Then
     rSPPTt.Database.SetDataSource rPajak
-    rSPPTt.tNip.SetText "NIP. " & xNIP
+    rSPPTt.tNIP.SetText "NIP. " & xNIP
     rSPPTt.tNama.SetText xNama
     rSPPTt.tkepala.SetText xJabatan
     CRViewer1.ReportSource = rSPPTt
@@ -210,7 +206,7 @@ ElseIf J_CETAK = 3 Or J_CETAK = 300 Then
     
     If J_CETAK = 3 Then
         rDHKP.Database.SetDataSource rPajak
-        rDHKP.tNip.SetText "NIP. " & xNIP
+        rDHKP.tNIP.SetText "NIP. " & xNIP
         rDHKP.tNama.SetText xNama
         rDHKP.tkepala.SetText xJabatan
         rDHKP.tNIP1.SetText "NIP. " & xNIP
@@ -223,7 +219,7 @@ ElseIf J_CETAK = 3 Or J_CETAK = 300 Then
         rDHKP.DiscardSavedData
     ElseIf J_CETAK = 300 Then
         rDHKP1.Database.SetDataSource rPajak
-        rDHKP1.tNip.SetText "NIP. " & xNIP
+        rDHKP1.tNIP.SetText "NIP. " & xNIP
         rDHKP1.tNama.SetText xNama
         rDHKP1.tkepala.SetText xJabatan
         rDHKP1.tNIP1.SetText "NIP. " & xNIP
@@ -242,7 +238,7 @@ ElseIf J_CETAK = 4 Then
     If rPajak.RecordCount > 0 Then rPajak.MoveFirst
     rKelas1.Database.SetDataSource rPajak
     rKelas1.tTanggal.SetText "Salak, " & Format(Now, "dd mmmm yyyy")
-    rKelas1.tNip.SetText "NIP. " & xNIP
+    rKelas1.tNIP.SetText "NIP. " & xNIP
     rKelas1.tNama.SetText xNama
     rKelas1.tJab.SetText xJabatan
     rKelas1.tJudul.SetText "TAHUN " & C_TAHUN
@@ -261,7 +257,7 @@ Me.Caption = "Cetak Simulasi Perbandingan PBB Tahun " & C_TAHUN * 1 & " dengan T
     rSimulasi.tJudul3.SetText "SPPT TAHUN " & C_TAHUN * 1 - 1
     rSimulasi.Database.SetDataSource rPajak
     rSimulasi.tTanggal.SetText "Salak, " & Format(Now, "dd mmmm yyyy")
-    rSimulasi.tNip.SetText "NIP. " & xNIP
+    rSimulasi.tNIP.SetText "NIP. " & xNIP
     rSimulasi.tNama.SetText xNama
     rSimulasi.tkepala.SetText xJabatan
 
@@ -284,7 +280,7 @@ ElseIf J_CETAK = 10 Then
     openDB (C_STR)
     If rPajak.RecordCount > 0 Then rPajak.MoveFirst
     rINDIVIDU.tJudul.SetText "TAHUN " & C_TAHUN
-     rINDIVIDU.tNip.SetText "NIP. " & xNIP
+     rINDIVIDU.tNIP.SetText "NIP. " & xNIP
     rINDIVIDU.tNama.SetText xNama
     rINDIVIDU.tJab.SetText xJabatan
     rINDIVIDU.tTanggal.SetText "Salak, " & Format(Now, "dd mmmm yyyy")
@@ -304,7 +300,7 @@ ElseIf J_CETAK = 20 Then
     openDB (C_STR)
     If rPajak.RecordCount > 0 Then rPajak.MoveFirst
     rDetail2.tJudul.SetText "TAHUN " & C_TAHUN
-     rDetail2.tNip.SetText "NIP. " & xNIP
+     rDetail2.tNIP.SetText "NIP. " & xNIP
     rDetail2.tNama.SetText xNama
     rDetail2.tJab.SetText xJabatan
     rDetail2.tTanggal.SetText "Salak, " & Format(Now, "dd mmmm yyyy")
@@ -329,7 +325,7 @@ ElseIf J_CETAK = 30 Then
     openDB (C_STR)
     If rPajak.RecordCount > 0 Then rPajak.MoveFirst
     rDETAIL.tJudul.SetText "TAHUN " & C_TAHUN
-     rDETAIL.tNip.SetText "NIP. " & xNIP
+     rDETAIL.tNIP.SetText "NIP. " & xNIP
     rDETAIL.tNama.SetText xNama
     rDETAIL.tJab.SetText xJabatan
     rDETAIL.tTanggal.SetText "Salak, " & Format(Now, "dd mmmm yyyy")
@@ -356,7 +352,7 @@ ElseIf J_CETAK = 40 Then
     openDB (C_STR)
     If rPajak.RecordCount > 0 Then rPajak.MoveFirst
     rNilai.tJudul1.SetText "LAPORAN PERBANDINGAN PENILAIAN OBJEK PAJAK TAHUN " & C_TAHUN
-    rNilai.tNip.SetText "NIP. " & xNIP
+    rNilai.tNIP.SetText "NIP. " & xNIP
     rNilai.tNama.SetText xNama
     rNilai.tkepala.SetText xJabatan
     rNilai.tTanggal.SetText "Salak, " & Format(Now, "dd mmmm yyyy")
@@ -389,7 +385,7 @@ C_STR = "SELECT C_OBJEK.KD_PROPINSI, C_OBJEK.KD_DATI2, C_OBJEK.KD_Kecamatan, C_O
     openDB (C_STR)
     If rPajak.RecordCount > 0 Then rPajak.MoveFirst
     rNilai2.tJudul1.SetText "LAPORAN PERBANDINGAN PENILAIAN OBJEK PAJAK TAHUN " & Format(Now, "YYYY") - 1 'C_TAHUN - 1
-    rNilai2.tNip.SetText "NIP. " & xNIP
+    rNilai2.tNIP.SetText "NIP. " & xNIP
     rNilai2.tNama.SetText xNama
     rNilai2.tkepala.SetText xJabatan
     rNilai2.tTanggal.SetText "Salak, " & Format(Now, "dd mmmm yyyy")
@@ -447,7 +443,7 @@ C_STR = "SELECT DAT_OBJEK_PAJAK.KD_PROPINSI, DAT_OBJEK_PAJAK.KD_DATI2, DAT_OBJEK
     openDB (C_STR)
     If rPajak.RecordCount > 0 Then rPajak.MoveFirst
     rNilai3.tJudul1.SetText "LAPORAN PERBANDINGAN PENILAIAN OBJEK PAJAK TAHUN " & Format(Now, "YYYY") & " DENGAN TAHUN " & Format(Now, "YYYY") - 1 'C_TAHUN - 1
-    rNilai3.tNip.SetText "NIP. " & xNIP
+    rNilai3.tNIP.SetText "NIP. " & xNIP
     rNilai3.tNama.SetText xNama
     rNilai3.tkepala.SetText xJabatan
     rNilai3.tTanggal.SetText "Salak, " & Format(Now, "dd mmmm yyyy")
@@ -532,7 +528,7 @@ ElseIf J_CETAK = 6 Then
     Case "20" 'MATERIAL
         C_STR = "SELECT DBKB_MATERIAL.KD_PROPINSI, DBKB_MATERIAL.KD_DATI2, DBKB_MATERIAL.THN_DBKB_MATERIAL, PEKERJAAN.KD_PEKERJAAN, PEKERJAAN.NM_PEKERJAAN, PEKERJAAN.STATUS_PEKERJAAN, PEKERJAAN_KEGIATAN.KD_KEGIATAN, PEKERJAAN_KEGIATAN.NM_KEGIATAN, DBKB_MATERIAL.NILAI_DBKB_MATERIAL FROM (PEKERJAAN INNER JOIN PEKERJAAN_KEGIATAN ON PEKERJAAN.KD_PEKERJAAN = PEKERJAAN_KEGIATAN.KD_PEKERJAAN) INNER JOIN DBKB_MATERIAL ON (PEKERJAAN_KEGIATAN.KD_KEGIATAN = DBKB_MATERIAL.KD_KEGIATAN) AND (PEKERJAAN_KEGIATAN.KD_PEKERJAAN = DBKB_MATERIAL.KD_PEKERJAAN) WHERE DBKB_MATERIAL.THN_DBKB_MATERIAL='" & C_TAHUN & "' order by PEKERJAAN_KEGIATAN.NM_KEGIATAN"
         Set rSEM = New rMaterial
-        rSEM.tNip.SetText "NIP. " & xNIP
+        rSEM.tNIP.SetText "NIP. " & xNIP
         rSEM.tNama.SetText xNama
         rSEM.tJab.SetText xJabatan
         rSEM.tTanggal.SetText "Salak, " & Format(Now, "dd mmmm yyyy")

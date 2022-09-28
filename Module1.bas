@@ -35,7 +35,9 @@ If dbPajak.State = adStateOpen Then dbPajak.Close
 Set dbPajak = Nothing
 Set rPajak = Nothing
 'dbPajak.Open "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=dbPajak;Data Source=" & nCom & ""
-dbPajak.Open "Provider=SQLOLEDB.1;User ID=PBBQ;Password=0134;Initial Catalog=dbPajak;Data Source=" & nCom & ""
+'dbPajak.Open "Provider=SQLOLEDB.1;User ID=PBBQ;Password=0134;Initial Catalog=dbPajak;Data Source=" & nCom & ""
+
+dbPajak.Open "Provider=SQLOLEDB.1;User ID=SA;Password=bappeda@4321;Initial Catalog=new_dbPajak;Data Source=103.15.242.196"
 'dbPajak.Open "Provider=SQLNCLI10;SERVER=GOEDHAMCORPS-PC;Database=DBPAJAK;DataTypeCompatibility=80;User Id=PBBQ;Password=0134;"
 'dbPajak.Open "Provider=SQLNCLI10;SERVER=" & nCom & ";Database=DBPAJAK;DataTypeCompatibility=80;User Id=PBBQ;Password=0134;"
 rPajak.Open SQLStr, dbPajak, 1, 2

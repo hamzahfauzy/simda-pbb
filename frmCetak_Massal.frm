@@ -5,7 +5,7 @@ Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "MSMASK32.OCX"
 Begin VB.Form frmCetak_Massal 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Cetak SPPT Secara Massal"
-   ClientHeight    =   5160
+   ClientHeight    =   12255
    ClientLeft      =   60
    ClientTop       =   345
    ClientWidth     =   16050
@@ -15,164 +15,16 @@ Begin VB.Form frmCetak_Massal
    MaxButton       =   0   'False
    MDIChild        =   -1  'True
    MinButton       =   0   'False
-   ScaleHeight     =   5160
+   ScaleHeight     =   12255
    ScaleWidth      =   16050
-   Begin VB.PictureBox Picture4 
-      BackColor       =   &H80000002&
-      BorderStyle     =   0  'None
-      Height          =   480
-      Left            =   -30
-      ScaleHeight     =   480
-      ScaleWidth      =   6000
-      TabIndex        =   24
-      Top             =   -30
-      Width           =   6000
-      Begin VB.CheckBox cUrut 
-         BackColor       =   &H80000002&
-         Caption         =   "Cetak Berdasarkan NOP"
-         BeginProperty Font 
-            Name            =   "Arial Narrow"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   240
-         Left            =   120
-         TabIndex        =   0
-         Top             =   120
-         Width           =   2580
-      End
-      Begin VB.CheckBox hTunggal 
-         BackColor       =   &H80000002&
-         Caption         =   "Cetak Tunggal"
-         BeginProperty Font 
-            Name            =   "Arial Narrow"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   240
-         Left            =   120
-         TabIndex        =   2
-         Top             =   105
-         Width           =   1875
-      End
-      Begin VB.CheckBox cRekam 
-         BackColor       =   &H80000002&
-         Caption         =   "Berdasarkan Tanggal Rekam Objek"
-         BeginProperty Font 
-            Name            =   "Arial Narrow"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   240
-         Left            =   2895
-         TabIndex        =   1
-         Top             =   135
-         Width           =   2730
-      End
-   End
-   Begin VB.Frame Frame4 
-      BackColor       =   &H8000000D&
-      Height          =   510
-      Left            =   1890
-      TabIndex        =   29
-      Top             =   -75
-      Width           =   3945
-      Begin VB.CommandButton cmdNOP1 
-         Caption         =   "..."
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   300
-         Left            =   3555
-         TabIndex        =   31
-         Top             =   165
-         Width           =   345
-      End
-      Begin MSMask.MaskEdBox aNOP 
-         Height          =   315
-         Left            =   510
-         TabIndex        =   3
-         Top             =   150
-         Width           =   3045
-         _ExtentX        =   5371
-         _ExtentY        =   556
-         _Version        =   393216
-         Appearance      =   0
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Tahoma"
-            Size            =   9
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         PromptChar      =   "_"
-      End
-      Begin VB.TextBox tNOP 
-         Alignment       =   1  'Right Justify
-         Appearance      =   0  'Flat
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   315
-         Index           =   0
-         Left            =   495
-         TabIndex        =   30
-         Top             =   150
-         Width           =   3000
-      End
-      Begin VB.Label Label7 
-         BackStyle       =   0  'Transparent
-         Caption         =   "NOP"
-         BeginProperty Font 
-            Name            =   "Tahoma"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   165
-         Left            =   135
-         TabIndex        =   32
-         Top             =   195
-         Width           =   1215
-      End
-   End
    Begin VB.Frame Frame1 
       Appearance      =   0  'Flat
       BackColor       =   &H80000005&
       ForeColor       =   &H80000008&
       Height          =   3585
-      Left            =   6030
+      Left            =   7800
       TabIndex        =   36
-      Top             =   855
+      Top             =   8040
       Width           =   5955
       Begin VB.CheckBox chJPB 
          BackColor       =   &H00FFFFFF&
@@ -497,6 +349,154 @@ Begin VB.Form frmCetak_Massal
          Width           =   5250
       End
    End
+   Begin VB.Frame Frame4 
+      BackColor       =   &H8000000D&
+      Height          =   510
+      Left            =   1890
+      TabIndex        =   29
+      Top             =   -75
+      Width           =   3945
+      Begin VB.CommandButton cmdNOP1 
+         Caption         =   "..."
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   300
+         Left            =   3555
+         TabIndex        =   31
+         Top             =   165
+         Width           =   345
+      End
+      Begin MSMask.MaskEdBox aNOP 
+         Height          =   315
+         Left            =   510
+         TabIndex        =   3
+         Top             =   150
+         Width           =   3045
+         _ExtentX        =   5371
+         _ExtentY        =   556
+         _Version        =   393216
+         Appearance      =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   9
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         PromptChar      =   "_"
+      End
+      Begin VB.TextBox tNOP 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Index           =   0
+         Left            =   495
+         TabIndex        =   30
+         Top             =   150
+         Width           =   3000
+      End
+      Begin VB.Label Label7 
+         BackStyle       =   0  'Transparent
+         Caption         =   "NOP"
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   165
+         Left            =   135
+         TabIndex        =   32
+         Top             =   195
+         Width           =   1215
+      End
+   End
+   Begin VB.PictureBox Picture4 
+      BackColor       =   &H80000002&
+      BorderStyle     =   0  'None
+      Height          =   480
+      Left            =   -30
+      ScaleHeight     =   480
+      ScaleWidth      =   6000
+      TabIndex        =   24
+      Top             =   -30
+      Width           =   6000
+      Begin VB.CheckBox cUrut 
+         BackColor       =   &H80000002&
+         Caption         =   "Cetak Berdasarkan NOP"
+         BeginProperty Font 
+            Name            =   "Arial Narrow"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   240
+         Left            =   105
+         TabIndex        =   0
+         Top             =   120
+         Width           =   2580
+      End
+      Begin VB.CheckBox hTunggal 
+         BackColor       =   &H80000002&
+         Caption         =   "Cetak Tunggal"
+         BeginProperty Font 
+            Name            =   "Arial Narrow"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   240
+         Left            =   120
+         TabIndex        =   2
+         Top             =   105
+         Width           =   1875
+      End
+      Begin VB.CheckBox cRekam 
+         BackColor       =   &H80000002&
+         Caption         =   "Berdasarkan Tanggal Rekam Objek"
+         BeginProperty Font 
+            Name            =   "Arial Narrow"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   240
+         Left            =   2895
+         TabIndex        =   1
+         Top             =   135
+         Width           =   2730
+      End
+   End
    Begin VB.CommandButton cmdExit 
       Caption         =   "E&xit"
       BeginProperty Font 
@@ -579,9 +579,9 @@ Begin VB.Form frmCetak_Massal
       Width           =   5985
       Begin MSComCtl2.DTPicker dRekam2 
          Height          =   315
-         Left            =   3720
+         Left            =   3765
          TabIndex        =   8
-         Top             =   1200
+         Top             =   1245
          Width           =   1995
          _ExtentX        =   3519
          _ExtentY        =   556
@@ -595,14 +595,14 @@ Begin VB.Form frmCetak_Massal
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Format          =   97910785
+         Format          =   140771329
          CurrentDate     =   41486
       End
       Begin MSComCtl2.DTPicker dRekam1 
          Height          =   315
-         Left            =   1560
+         Left            =   1530
          TabIndex        =   7
-         Top             =   1200
+         Top             =   1230
          Width           =   1830
          _ExtentX        =   3228
          _ExtentY        =   556
@@ -616,7 +616,7 @@ Begin VB.Form frmCetak_Massal
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Format          =   97910785
+         Format          =   140771329
          CurrentDate     =   41486
       End
       Begin VB.ComboBox ccTahun 
@@ -765,7 +765,7 @@ Begin VB.Form frmCetak_Massal
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Format          =   97910785
+         Format          =   140771329
          CurrentDate     =   41486
       End
       Begin MSComCtl2.DTPicker dTerbit 
@@ -786,7 +786,7 @@ Begin VB.Form frmCetak_Massal
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Format          =   97910785
+         Format          =   140771329
          CurrentDate     =   41486
       End
       Begin VB.TextBox tSPPT2 
@@ -2830,9 +2830,11 @@ If rPajak.RecordCount > 0 Then rPajak.MoveFirst
     'tSPPT.Text = Format(C, "#,#0")
     'tTotal.Text = Format(JUM1, "#,#0")
     For J = 1 To vOP.ListItems.Count
-        vOP.ListItems(J).ListSubItems(9).Text = vOP.ListItems(J).ListSubItems(4).Text * 1 + vOP.ListItems(J).ListSubItems(6).Text * 1
-        vOP.ListItems(J).ListSubItems(10).Text = vOP.ListItems(J).ListSubItems(5).Text * 1 + vOP.ListItems(J).ListSubItems(7).Text * 1
+        If vOP.ListItems(J).ListSubItems(8).Text = (C_TAHUN * 1) - 1 Then 'PERBAIKAN TAHUN 2022-DITAMBAH
+            vOP.ListItems(J).ListSubItems(9).Text = vOP.ListItems(J).ListSubItems(4).Text * 1 + vOP.ListItems(J).ListSubItems(6).Text * 1
+            vOP.ListItems(J).ListSubItems(10).Text = vOP.ListItems(J).ListSubItems(5).Text * 1 + vOP.ListItems(J).ListSubItems(7).Text * 1
         'vOP.ListItems(j).ListSubItems(8).Text = VOP1.ListItems(j).ListSubItems(4).Text * 1 + VOP1.ListItems(j).ListSubItems(6).Text * 1
+        End If
     Next
     tSPPT2.Text = Format(JS2, "#,#0")
     tTotal2.Text = Format(JUM2, "#,#0")
@@ -2903,19 +2905,22 @@ VOP1.ListItems.Clear
     rPajak.MoveNext
     Loop
     For J = 1 To VOP1.ListItems.Count
-        c4 = 0: c5 = 0
-        For K = 1 To vOP.ListItems.Count
+        c4 = 0: c5 = 0: C6 = 0: C7 = 0 'PERBAIKAN TAHUN 2022 TAMBAH C6 DAN C7
+        For k = 1 To vOP.ListItems.Count
            
-            If vOP.ListItems(K).ListSubItems(2).Text = VOP1.ListItems(J).ListSubItems(2).Text And vOP.ListItems(K).ListSubItems(3).Text = VOP1.ListItems(J).ListSubItems(3).Text Then
-                c4 = c4 + vOP.ListItems(K).ListSubItems(4).Text * 1
-                c5 = c5 + vOP.ListItems(K).ListSubItems(5).Text * 1
+            If vOP.ListItems(k).ListSubItems(2).Text = VOP1.ListItems(J).ListSubItems(2).Text And vOP.ListItems(k).ListSubItems(3).Text = VOP1.ListItems(J).ListSubItems(3).Text Then
+                c4 = c4 + (vOP.ListItems(k).ListSubItems(4).Text * 1)
+                c5 = c5 + (vOP.ListItems(k).ListSubItems(5).Text * 1)
+                C6 = C6 + (vOP.ListItems(k).ListSubItems(9).Text * 1) 'PERBAIKAN TAHUN 2022 TAMBAH C6
+                C7 = C7 + (vOP.ListItems(k).ListSubItems(10).Text * 1) 'PERBAIKAN TAHUN 2022 TAMBAH C7
                 VOP1.ListItems(J).ListSubItems(4).Text = c4 'vOP.ListItems(k).ListSubItems(4).Text
                 VOP1.ListItems(J).ListSubItems(5).Text = c5 'vOP.ListItems(k).ListSubItems(5).Text
-                VOP1.ListItems(J).ListSubItems(6).Text = vOP.ListItems(K).ListSubItems(9).Text
-                VOP1.ListItems(J).ListSubItems(7).Text = vOP.ListItems(K).ListSubItems(10).Text
+                VOP1.ListItems(J).ListSubItems(6).Text = C6 'vOP.ListItems(k).ListSubItems(9).Text -- PERBAIKAN TAHUN 2022
+                VOP1.ListItems(J).ListSubItems(7).Text = C7 'vOP.ListItems(k).ListSubItems(10).Text -- PERBAIKAN TAHUN 2022
                 
             End If
         Next
+        
     Next
 
 If Err.Number = 0 Then Screen.MousePointer = vbDefault: Exit Sub
@@ -3124,9 +3129,9 @@ C_OBJ = "SELECT * FROM REF_BUKU "
 openDB (C_OBJ)
 If rPajak.RecordCount > 0 Then rPajak.MoveFirst
 xRec = vOP.ListItems.Count '* rPajak.RecordCount
-K = 0
+k = 0
 Do While Not rPajak.EOF
-    K = K + 1
+    k = k + 1
     
 
     'xBUKU(k) = rPajak!KD_BUKU
