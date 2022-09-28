@@ -1,0 +1,5 @@
+Line 2: Could not create reference: '{248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0'.
+Line 56: Class MSWinsockLib.Winsock of control wSock was not a loaded control class.
+Line 59: The property name _ExtentX in wSock is invalid.
+Line 60: The property name _ExtentY in wSock is invalid.
+Line 61: The property name _Version in wSock is invalid.
