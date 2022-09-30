@@ -851,7 +851,7 @@ Begin VB.Form frmSPPT_Tunggal
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Format          =   62717953
+         Format          =   138215425
          CurrentDate     =   41486
       End
       Begin MSComCtl2.DTPicker dJatuh 
@@ -872,7 +872,7 @@ Begin VB.Form frmSPPT_Tunggal
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Format          =   62717953
+         Format          =   138215425
          CurrentDate     =   41486
       End
       Begin VB.Label Label28 
@@ -1495,14 +1495,15 @@ ccBayar.Text = ccBayar.List(3)
 'CEK_JLH
 End Sub
 Sub K_BUMI()
-On Error GoTo Salah
+'On Error GoTo Salah
 xxSTR = "select * from Kelas_TANAH WHERE THN_AWAL_KLS_TANAH='" & xTT & "'"
 openDB (xxSTR)
 If rPajak.RecordCount > 0 Then rPajak.MoveFirst
 L_BUMI = tNOP(11).Text
 If L_BUMI <= 0 Then L_BUMI = 1
 Do While Not rPajak.EOF
-    If Format(tNOP(15).Text / L_BUMI, "#,#0") = Format(rPajak!NILAI_PER_M2_TANAH * 1000, "#,#0") Then
+    'If (Format(tNOP(15).Text / L_BUMI, "#,#0") = Format(rPajak!NILAI_PER_M2_TANAH * 1000, "#,#0") Then
+    If tNOP(15).Text * 1 / L_BUMI * 1 = rPajak!NILAI_PER_M2_TANAH * 1000 Then 'diperbaharui 30 september 2022
         tNOP(13).Text = rPajak!KD_KLS_TANAH
         Exit Sub
     End If
@@ -1510,7 +1511,7 @@ rPajak.MoveNext
 Loop
 tNOP(13).Text = 0
 If Err.Number = 0 Then Screen.MousePointer = vbDefault: Exit Sub
-Salah:
+'Salah:
 If Err.Number = 0 Then Screen.MousePointer = vbDefault: Exit Sub
 MsgBox Err.Number & ": " & Err.Description
 
@@ -1524,7 +1525,8 @@ L_BNG = tNOP(12).Text
 If L_BNG <= 0 Then L_BNG = 1
 If rPajak.RecordCount > 0 Then rPajak.MoveFirst
 Do While Not rPajak.EOF
-    If Format(tNOP(16).Text / L_BNG, "#,#0") = Format(rPajak!NILAI_PER_M2_BNG * 1000, "#,#0") Then
+    'If Format(tNOP(16).Text / L_BNG, "#,#0") = Format(rPajak!NILAI_PER_M2_BNG * 1000, "#,#0") Then
+    If tNOP(16).Text * 1 / L_BNG = rPajak!NILAI_PER_M2_BNG * 1000 Then 'diperbaharui 30 september 2022
         tNOP(14).Text = rPajak!KD_KLS_BNG
         Exit Sub
         
@@ -1591,7 +1593,7 @@ If KeyAscii = 13 Then
 End If
 End Sub
 Sub call_data()
-On Error GoTo Salah
+'On Error GoTo Salah
 Screen.MousePointer = vbHourglass
 
     StrQ1 = "Select * From QOBJEKPAJAK WHERE NOPQ =  '" & Trim(aNOP.Text) & "' ORDER BY nopq asc"
@@ -1637,7 +1639,7 @@ Screen.MousePointer = vbHourglass
     Call_Proses
     
 If Err.Number = 0 Then Screen.MousePointer = vbDefault: Exit Sub
-Salah:
+'Salah:
 If Err.Number = 0 Then Screen.MousePointer = vbDefault: Exit Sub
 MsgBox Err.Number & ": " & Err.Description
 Screen.MousePointer = vbDefault
@@ -1720,9 +1722,9 @@ End Select
 Select Case Index
 Case 18, 19, 22
     'tNOP(20).Text = Format((tNOP(21).Text * cTarif / 100) - tNOP(19).Text * 1, "#,#0")
-    tNOP(21).Text = tNOP(17).Text * 1 - tNOP(18).Text * 1
+    tNOP(21).Text = Format(tNOP(17).Text * 1 - tNOP(18).Text * 1, "#,#0")
     If tNOP(21).Text <= 0 Then tNOP(21).Text = 0
-    tNOP(20).Text = Format((tNOP(21).Text * tNOP(22).Text * 1 / 100) - tNOP(19).Text * 1, "#,#0")
+    tNOP(20).Text = Format((tNOP(21).Text * 1 * tNOP(22).Text * 1 / 100) - tNOP(19).Text * 1, "#,#0")
     Call_MIN
     If tNOP(20).Text * 1 < NMIN * 1 Then
         tNOP(20).Text = Format(NMIN, "#,#0")
@@ -1738,7 +1740,13 @@ End Sub
 Sub CEK_NJOPTKP()
 On Error GoTo Salah
 'List1.Clear
-n_STR = "select * from DAT_SUBJEK_PAJAK_NJOPTKP WHERE (SUBJEK_PAJAK_ID)='" & Trim(tID.Text) & "' ORDER BY SUBJEK_PAJAK_ID ASC"
+xxKec = Mid(Trim(aNOP.Text), 7, 3)
+xxKel = Mid(Trim(aNOP.Text), 11, 3)
+xxBlok = Mid(Trim(aNOP.Text), 15, 3)
+xxUrut = Mid(Trim(aNOP.Text), 19, 4)
+xxJenis = Right(Trim(aNOP.Text), 1)
+n_STR = "select * from DAT_SUBJEK_PAJAK_NJOPTKP WHERE (SUBJEK_PAJAK_ID)='" & Trim(tID.Text) & "' and KD_KECAMATAN ='" & xxKec & "' and KD_KELURAHAN='" & xxKel & "' and KD_BLOK='" & xxBlok & "' and NO_URUT ='" & xxUrut & "' and KD_JNS_OP ='" & xxJenis & "'  ORDER BY SUBJEK_PAJAK_ID ASC" ' kode baru 30 september 2022
+'n_STR = "select * from DAT_SUBJEK_PAJAK_NJOPTKP WHERE (SUBJEK_PAJAK_ID)='" & Trim(tID.Text) & "' ORDER BY SUBJEK_PAJAK_ID ASC"
 'n_STR = "select * from DAT_SUBJEK_PAJAK_NJOPTKP ORDER BY SUBJEK_PAJAK_ID ASC"
 openDB (n_STR)
 If rPajak.RecordCount > 0 Then rPajak.MoveFirst
@@ -1775,7 +1783,7 @@ vBangunan.Sorted = False
 vBangunan.SortOrder = lvwAscending
 End Sub
 Sub Call_Proses()
-On Error GoTo Salah
+'On Error GoTo Salah
 tNOP(17).Text = Format(tNOP(15).Text * 1 + tNOP(16).Text * 1, "#,#0")
     CALL_NJOPTKP
     If tNOP(17).Text * 1 >= cMin(1) And tNOP(17).Text * 1 <= cMax(1) Then
@@ -1803,7 +1811,7 @@ tNOP(17).Text = Format(tNOP(15).Text * 1 + tNOP(16).Text * 1, "#,#0")
         tNOP(20).Text = Format(NMIN, "#,#0")
     End If
 If Err.Number = 0 Then Screen.MousePointer = vbDefault: Exit Sub
-Salah:
+'Salah:
 If Err.Number = 0 Then Screen.MousePointer = vbDefault: Exit Sub
 MsgBox Err.Number & ": " & Err.Description
 End Sub
