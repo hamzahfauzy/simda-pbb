@@ -851,7 +851,7 @@ Begin VB.Form frmSPPT_Tunggal
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Format          =   138215425
+         Format          =   138608641
          CurrentDate     =   41486
       End
       Begin MSComCtl2.DTPicker dJatuh 
@@ -872,7 +872,7 @@ Begin VB.Form frmSPPT_Tunggal
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Format          =   138215425
+         Format          =   138608641
          CurrentDate     =   41486
       End
       Begin VB.Label Label28 
@@ -1503,7 +1503,8 @@ L_BUMI = tNOP(11).Text
 If L_BUMI <= 0 Then L_BUMI = 1
 Do While Not rPajak.EOF
     'If (Format(tNOP(15).Text / L_BUMI, "#,#0") = Format(rPajak!NILAI_PER_M2_TANAH * 1000, "#,#0") Then
-    If tNOP(15).Text * 1 / L_BUMI * 1 = rPajak!NILAI_PER_M2_TANAH * 1000 Then 'diperbaharui 30 september 2022
+    If (tNOP(15).Text * 1 / L_BUMI * 1 >= rPajak!NILAI_MIN_TANAH * 1000) And (tNOP(15).Text * 1 / L_BUMI * 1 <= rPajak!NILAI_MAX_TANAH * 1000) Then 'diperbaharui 30 september 2022
+    'If tNOP(15).Text * 1 / L_BUMI * 1 = rPajak!NILAI_PER_M2_TANAH * 1000 Then 'diperbaharui 30 september 2022
         tNOP(13).Text = rPajak!KD_KLS_TANAH
         Exit Sub
     End If
